@@ -272,6 +272,22 @@ return {
           adapter = "openai",
         },
       },
+      adapters = {
+        anthropic = function()
+          return require("codecompanion.adapters").extend("anthropic", {
+            env = {
+              api_key = "cmd:security find-generic-password -a $USER -s ANTHROPIC_API_KEY -w 2>/dev/null",
+            },
+          })
+        end,
+        openai = function()
+          return require("codecompanion.adapters").extend("openai", {
+            env = {
+              api_key = "cmd:security find-generic-password -a $USER -s OPENAI_API_KEY -w 2>/dev/null",
+            },
+          })
+        end,
+      },
       extensions = {
         history = {
           enabled = true,
