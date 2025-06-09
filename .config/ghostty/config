@@ -1,0 +1,15 @@
+theme = catppuccin-mocha
+font-size = 14
+window-padding-balance = true
+window-padding-x = 2
+confirm-close-surface = false
+cursor-style = block
+shell-integration-features = no-cursor
+cursor-style-blink = false
+window-height = 30
+window-width = 100
+cursor-invert-fg-bg = true
+macos-titlebar-proxy-icon = hidden
+title = " "
+
+keybind = super+r=reload_config
