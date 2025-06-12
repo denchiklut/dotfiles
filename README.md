@@ -23,5 +23,3 @@ A `setup.sh` script is provided to install common packages and plugins.
   zsh ~/dotfiles/setup.sh
   ```
 
-3. Open tmux and Press `C-Space I` (capital i, as in Install) to fetch the plugin.
-4. Open Neovim and run `:MasonInstallAll` to install LSPs

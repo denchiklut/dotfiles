@@ -1,9 +1,9 @@
 require "nvchad.mappings"
+require "configs.telescope"
 
 local map = vim.keymap.set
 local del = vim.keymap.del
 
-local builtin = require "telescope.builtin"
 local buf = require "configs.buffer"
 local volt = require "configs.volt"
 
@@ -20,57 +20,6 @@ map("n", "<leader>bo", buf.closeOther, { desc = "Close other buffers" })
 map("n", "<leader>gc", ":Neogit commit<cr>", { desc = "Commit changes" })
 map("n", "<leader>gp", ":Neogit push<cr>", { desc = "Push changes" })
 map("n", "<leader>gP", ":Neogit pull<cr>", { desc = "Pull changes" })
-
-map("n", "<leader>fc", builtin.commands, { desc = "Commands" })
-map("n", "<leader>fr", builtin.registers, { desc = "Registers" })
-map("n", "<leader>fk", builtin.keymaps, { desc = "Keymaps" })
-map("n", "<leader>gr", builtin.lsp_references, { desc = "LSP: References" })
-map("n", "<leader>gb", builtin.git_branches, { desc = "Git: Branches" })
-map("n", "<leader>gh", builtin.git_bcommits, { desc = "Git: History" })
-map("n", "<leader>gs", builtin.git_stash, { desc = "Git: Stashes" })
-
-map("n", "<leader>fh", function()
-  builtin.find_files {
-    hidden = true,
-    find_command = {
-      "rg",
-      "--files",
-      "--hidden",
-      "--no-ignore",
-      "--glob",
-      "!**/.git/**",
-      "--glob",
-      "!**/.vercel/**",
-      "--glob",
-      "!**/.next/**",
-      "--glob",
-      "!**/dist/**",
-      "--glob",
-      "!**/node_modules/**",
-    },
-  }
-end, { desc = "Find files (including hidden)" })
-
-map("n", "<leader>fs", function()
-  builtin.live_grep {
-    additional_args = function()
-      return {
-        "--hidden",
-        "--no-ignore",
-        "--glob",
-        "!**/.git/**",
-        "--glob",
-        "!**/.vercel/**",
-        "--glob",
-        "!**/.next/**",
-        "--glob",
-        "!**/dist/**",
-        "--glob",
-        "!**/node_modules/**",
-      }
-    end,
-  }
-end, { desc = "telescope live grep (including hidden files)" })
 
 map("n", "<leader>tn", ":tabnext<cr>", { silent = true, desc = "Next tab" })
 map("n", "<leader>tp", ":tabprevious<cr>", { silent = true, desc = "Previous tab" })

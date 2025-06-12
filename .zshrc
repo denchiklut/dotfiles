@@ -39,8 +39,9 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/.rd/bin:$HOME/.tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
+
 alias t="tmux"
-alias tmx="tmuxifier"
+alias tf="tmuxifier"
 alias tmw="tmuxifier s work"
 alias tmc="tmuxifier s config"
 

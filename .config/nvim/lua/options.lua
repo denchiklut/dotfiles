@@ -1,5 +1,19 @@
 require "nvchad.options"
 
+vim.api.nvim_create_autocmd("BufReadPost", {
+  once = true,
+  callback = function()
+    local mason_flag = vim.fn.stdpath "data" .. "/mason_installed"
+
+    if vim.fn.empty(vim.fn.glob(mason_flag)) > 0 then
+      vim.schedule(function()
+        vim.cmd "MasonInstallAll"
+        vim.fn.writefile({}, mason_flag)
+      end)
+    end
+  end,
+})
+
 vim.api.nvim_create_autocmd("BufWinEnter", {
   pattern = "*",
   callback = function()

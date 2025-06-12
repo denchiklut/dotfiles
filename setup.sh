@@ -18,17 +18,22 @@ typeset -A plugins=(
 )
 
 for repo dest in ${(kv)plugins}; do
-  [[ -d "$dest/.git" ]] || git clone "$repo" "$dest"
+  [ -d "$dest/.git" ] || git clone "$repo" "$dest"
 done
 
 # Install script for Catppuccin Tmux 
 dir=$HOME/.config/tmux/plugins/catppuccin/tmux
 [ -d "$dir/.git" ] || git clone -b v2.1.3 https://github.com/catppuccin/tmux.git "$dir"
 
-
 # Install tpm (Tmux Plugin Manager)
 tpm=$HOME/.tmux/plugins/tpm
 [ -d "$tpm/.git" ] || git clone https://github.com/tmux-plugins/tpm "$tpm"
 
+tmx=$HOME/.timuxifire
+[ -d "$tmx/.git" ] || git clone https://github.com/jimeh/tmuxifier.git "$tmx"
+
 # Apply simlinks 
 stow -t $HOME -d "$HOME/dotfiles" --ignore "README.md" --ignore "setup.sh" .
+
+# Install tmux plugins
+$HOME/.tmux/plugins/tpm/bin/install_plugins
