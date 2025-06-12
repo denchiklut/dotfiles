@@ -1,3 +1,6 @@
+# Install brew if not installed
+command -v brew >/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 # Brew installation
 brew install starship fzf eza bat zoxide tmux neovim stow
 

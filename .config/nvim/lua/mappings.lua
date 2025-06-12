@@ -29,6 +29,49 @@ map("n", "<leader>gb", builtin.git_branches, { desc = "Git: Branches" })
 map("n", "<leader>gh", builtin.git_bcommits, { desc = "Git: History" })
 map("n", "<leader>gs", builtin.git_stash, { desc = "Git: Stashes" })
 
+map("n", "<leader>fh", function()
+  builtin.find_files {
+    hidden = true,
+    find_command = {
+      "rg",
+      "--files",
+      "--hidden",
+      "--no-ignore",
+      "--glob",
+      "!**/.git/**",
+      "--glob",
+      "!**/.vercel/**",
+      "--glob",
+      "!**/.next/**",
+      "--glob",
+      "!**/dist/**",
+      "--glob",
+      "!**/node_modules/**",
+    },
+  }
+end, { desc = "Find files (including hidden)" })
+
+map("n", "<leader>fs", function()
+  builtin.live_grep {
+    additional_args = function()
+      return {
+        "--hidden",
+        "--no-ignore",
+        "--glob",
+        "!**/.git/**",
+        "--glob",
+        "!**/.vercel/**",
+        "--glob",
+        "!**/.next/**",
+        "--glob",
+        "!**/dist/**",
+        "--glob",
+        "!**/node_modules/**",
+      }
+    end,
+  }
+end, { desc = "telescope live grep (including hidden files)" })
+
 map("n", "<leader>tn", ":tabnext<cr>", { silent = true, desc = "Next tab" })
 map("n", "<leader>tp", ":tabprevious<cr>", { silent = true, desc = "Previous tab" })
 map("n", "<leader>tt", ":tabnew<cr>", { silent = true, desc = "New tab" })
