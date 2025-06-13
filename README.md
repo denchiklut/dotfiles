@@ -6,7 +6,6 @@ It includes settings for:
 - Zsh and Oh-My-Zsh
 - Tmux
 - Neovim (NvChad configuration under `./config/nvim`)
-- Ghostty terminal
 - Starship prompt
 
 A `setup.sh` script is provided to install common packages and plugins.

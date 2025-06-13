@@ -1,5 +1,5 @@
 require "nvchad.mappings"
-require "configs.telescope"
+require "configs.teleskope"
 
 local map = vim.keymap.set
 local del = vim.keymap.del
