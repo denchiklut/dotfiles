@@ -17,9 +17,10 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("BufWinEnter", {
   pattern = "*",
   callback = function()
-    if vim.bo.filetype == "codecompanion" and vim.bo.buftype == "nofile" then
+    if vim.bo.filetype == "codecompanion" then
       vim.wo.number = false
       vim.wo.relativenumber = false
+      vim.b.completion = false
     end
   end,
 })

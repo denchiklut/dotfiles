@@ -40,6 +40,11 @@ return {
         ghost_text = {
           enabled = false,
         },
+        menu = {
+          draw = {
+            padding = { 0, 1 },
+          },
+        },
       },
     },
   },
