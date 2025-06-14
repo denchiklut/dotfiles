@@ -59,6 +59,12 @@ return {
       keymap = {
         ["<C-n>"] = { "show", "select_next" },
       },
+      cmdline = {
+        keymap = {
+          ["<Tab>"] = { "show", "accept" },
+        },
+        completion = { menu = { auto_show = true } },
+      },
     },
   },
   {
