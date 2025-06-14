@@ -35,16 +35,29 @@ return {
   { import = "nvchad.blink.lazyspec" },
   {
     "Saghen/blink.cmp",
+    dependencies = { "fang2hou/blink-copilot" },
     opts = {
-      completion = {
-        ghost_text = {
-          enabled = false,
+      sources = {
+        default = { "copilot", "lsp", "buffer", "snippets", "path" },
+        providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-copilot",
+            score_offset = 100,
+            async = true,
+          },
         },
+      },
+      completion = {
         menu = {
           draw = {
+            align_to = "kind_icon",
             padding = { 0, 1 },
           },
         },
+      },
+      keymap = {
+        ["<C-n>"] = { "show", "select_next" },
       },
     },
   },
@@ -266,6 +279,24 @@ return {
         reindent_linewise = true,
       },
     },
+  },
+  {
+    "github/copilot.vim",
+    cmd = "Copilot",
+    event = "BufWinEnter",
+    init = function()
+      vim.g.copilot_no_maps = true
+    end,
+    config = function()
+      vim.api.nvim_create_augroup("github_copilot", { clear = true })
+      vim.api.nvim_create_autocmd({ "FileType", "BufUnload" }, {
+        group = "github_copilot",
+        callback = function(args)
+          vim.fn["copilot#On" .. args.event]()
+        end,
+      })
+      vim.fn["copilot#OnFileType"]()
+    end,
   },
   {
     "olimorris/codecompanion.nvim",

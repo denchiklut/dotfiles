@@ -14,12 +14,21 @@ A `setup.sh` script is provided to install common packages and plugins.
 ## Usage
 
 1. Clone the repository:
-  ```sh
-  git clone https://github.com/denchiklut/dotfiles.git ~/dotfiles
-  ```
+   ```sh
+   git clone https://github.com/denchiklut/dotfiles.git ~/dotfiles
+   ```
 
 2. Run the setup script:
-  ```sh
-  zsh ~/dotfiles/setup.sh
-  ```
+   ```sh
+   zsh ~/dotfiles/setup.sh
+   ```
 
+3. Optionally if u wan to use AI assistent u need to provide your API keys:
+   - [Anthropic](https://www.anthropic.com/)
+   - [OpenAI](https://platform.openai.com/)
+
+   You can set them up using the following commands:
+   ```sh
+   security add-generic-password -a $USER -s ANTHROPIC_API_KEY -w YOUR_API_KEY
+   security add-generic-password -a $USER -s OPENAI_API_KEY -w YOUR_API_KEY
+   ```

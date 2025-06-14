@@ -37,9 +37,6 @@ map("n", "<leader>T", ":TestFile<cr>", { silent = true })
 map("n", "<leader>s", ":TestSuite<cr>", { silent = true })
 map("n", "<leader>l", ":TestLast<cr>", { silent = true })
 
-map("i", "<M-Space>", "copilot#Accept()", { expr = true, replace_keycodes = false, desc = "Copilot: Accept" })
-map("i", "<M-c>", "copilot#Dismiss()", { expr = true, replace_keycodes = false, desc = "Copilot: Dismiss" })
-
 map("v", "ga", ":CodeCompanionChat Add<cr>", { desc = "Code Companion Add to chat", noremap = true, silent = true })
 map(
   { "n", "v" },
