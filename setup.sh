@@ -19,7 +19,6 @@ declare -A plugins=(
   ["$custom/zsh-nvm"]="https://github.com/lukechilds/zsh-nvm"
 )
 
-
 for plugin in "${!plugins[@]}"; do
   [ -d "$plugin/.git" ] || git clone "${plugins[$plugin]}" "$plugin"
 done
@@ -36,8 +35,21 @@ tpm=$HOME/.tmux/plugins/tpm
 tmx=$HOME/.tmuxifier
 [ -d "$tmx/.git" ] || git clone https://github.com/jimeh/tmuxifier.git "$tmx"
 
-[ -d "$HOME/.zshrc" ] && mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
-[ -d "$HOME/.config/nvim" ] &&  mv "$HOME/.config/nvim" "$HOME/.config/.nvim.backup"
+
+# Back up existing configuration
+declare -a configs=(
+  "$HOME/.zshrc"
+  "$HOME/.tmux.conf"
+  "$HOME/.config/nvim"
+  "$HOME/.config/ghostty/config"
+  "$HOME/.config/starship.toml"
+)
+
+for config in "${configs[@]}"; do
+  [ -e "$config" ] && mv "$config" "$config.backup"
+done
+
+# Apply simlinks 
 stow -t $HOME -d "$HOME/dotfiles" --ignore "README.md" --ignore "setup.sh" .
 
 # Install tmux plugins
