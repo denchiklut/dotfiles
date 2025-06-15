@@ -9,21 +9,21 @@ function M.start_inline_loader(context, ns)
 
   local block = require("configs.codecompanion.block").new(context, ns)
   local spinner = require("configs.codecompanion.spinner").new(context, ns, block.width)
-  local extmarks = require("configs.codecompanion.extmarks").new(context, ns)
+  local signs = require("configs.codecompanion.signs").new(context, ns)
 
   spinner:start()
-  extmarks:start()
+  signs:start()
   block:start()
 
-  M.spinners[ns] = { spinner, extmarks, block }
+  M.spinners[ns] = { spinner, signs, block }
 end
 
 function M.stop_inline_loader(ns)
-  local spinner, extmarks, block = unpack(M.spinners[ns])
+  local spinner, signs, block = unpack(M.spinners[ns])
 
   spinner:stop()
   block:stop()
-  extmarks:stop()
+  signs:stop()
 
   M.spinners[ns] = nil
 end
@@ -41,6 +41,7 @@ end
 function M.setup()
   vim.api.nvim_create_autocmd("User", {
     pattern = "CodeCompanionRequest*",
+    group = vim.api.nvim_create_augroup("CodeCompanionHooks", { clear = true }),
     callback = function(request)
       local data = request.data or {}
       local context = data.context or {}

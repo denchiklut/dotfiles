@@ -20,7 +20,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     if vim.bo.filetype == "codecompanion" then
       vim.wo.number = false
       vim.wo.relativenumber = false
-      vim.b.completion = false
     end
   end,
 })
