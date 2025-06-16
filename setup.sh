@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
+# Suppress (MOTD) at login
+echo > "$HOME/.hushlogin"
+
 # Install brew if not installed
 command -v brew >/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Brew installation
-brew install starship fzf eza bat zoxide tmux ripgrep fd neovim stow
+brew install starship fzf git-graph eza bat zoxide tmux ripgrep fd neovim stow
 
 # Install oh-my-zsh
 [ -d "$HOME/.oh-my-zsh" ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

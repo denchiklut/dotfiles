@@ -44,5 +44,6 @@ alias t="tmux"
 alias tf="tmuxifier"
 alias tmw="tmuxifier s work"
 alias tmc="tmuxifier s config"
+alias gg="git-graph --style round"
 
 eval "$(zoxide init --cmd cd zsh)"
