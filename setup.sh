@@ -26,6 +26,10 @@ for plugin in "${!plugins[@]}"; do
   [ -d "$plugin/.git" ] || git clone "${plugins[$plugin]}" "$plugin"
 done
 
+# Ensure Node (LTS) is installed & active
+nvm install --lts --default
+nvm use --lts
+
 # Install script for Catppuccin Tmux 
 dir=$HOME/.config/tmux/plugins/catppuccin/tmux
 [ -d "$dir/.git" ] || git clone -b v2.1.3 https://github.com/catppuccin/tmux.git "$dir"

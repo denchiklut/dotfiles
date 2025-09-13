@@ -330,15 +330,32 @@ return {
             save_chat_keymap = "sc",
           },
         },
+        mcphub = {
+          callback = "mcphub.extensions.codecompanion",
+          opts = {
+            make_vars = true,
+            make_slash_commands = true,
+            show_result_in_chat = true,
+          },
+        },
       },
     },
     dependencies = {
       "github/copilot.vim",
       "ravitemer/codecompanion-history.nvim",
+      "ravitemer/mcphub.nvim",
     },
     config = function(_, opts)
       require("codecompanion").setup(opts)
       require("configs.codecompanion.index").setup()
+    end,
+  },
+  {
+    "ravitemer/mcphub.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    build = "npm install -g mcp-hub@latest",
+    config = function()
+      require("mcphub").setup()
     end,
   },
   {
