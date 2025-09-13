@@ -342,6 +342,25 @@ return {
     end,
   },
   {
+    "HakonHarnes/img-clip.nvim",
+    event = "VeryLazy",
+    opts = {
+      default = {
+        dir_path = os.getenv "HOME" .. "/Desktop",
+        prompt_for_file_name = false,
+        use_absolute_path = true,
+      },
+      filetypes = {
+        codecompanion = {
+          template = "[Image]($FILE_PATH)",
+        },
+      },
+    },
+    keys = {
+      { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+    },
+  },
+  {
     "MeanderingProgrammer/render-markdown.nvim",
     event = "VeryLazy",
     opts = {
