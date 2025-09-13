@@ -17,6 +17,9 @@ map("n", ";", ":", { desc = "Enter command mode" })
 map("n", "-", "<cmd>Oil<cr>", { desc = "Open parent directory" })
 map("n", "<leader>bo", buf.closeOther, { desc = "Close other buffers" })
 
+map("i", "<M-Space>", "copilot#Accept()", { expr = true, replace_keycodes = false, desc = "Copilot: Accept" })
+map("i", "<M-c>", "copilot#Dismiss()", { expr = true, replace_keycodes = false, desc = "Copilot: Dismiss" })
+
 map("n", "<leader>gc", ":Neogit commit<cr>", { desc = "Commit changes" })
 map("n", "<leader>gp", ":Neogit push<cr>", { desc = "Push changes" })
 map("n", "<leader>gP", ":Neogit pull<cr>", { desc = "Pull changes" })
