@@ -41,23 +41,19 @@ map("n", "<leader>s", ":TestSuite<cr>", { silent = true })
 map("n", "<leader>l", ":TestLast<cr>", { silent = true })
 
 map("v", "ga", ":CodeCompanionChat Add<cr>", { desc = "Code Companion Add to chat", noremap = true, silent = true })
+
 map(
   { "n", "v" },
   "<C-a>",
   ":CodeCompanionActions<cr>",
   { desc = "Code Companion Actions", noremap = true, silent = true }
 )
+
 map(
   { "n", "v" },
   "<leader>aa",
   ":CodeCompanionChat Toggle<cr>",
   { desc = "Code Companion Toggle Chat", noremap = true, silent = true }
-)
-map(
-  { "n", "v" },
-  "<leader>ai",
-  ":CodeCompanion<cr>",
-  { desc = "Code Companion Inline Prompt", noremap = true, silent = true }
 )
 
 map(
