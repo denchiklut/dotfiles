@@ -38,6 +38,8 @@ export plugins=(git eza fzf zsh-nvm dotenv node-bin npm zsh-syntax-highlighting 
 source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/Library/pnpm:$HOME/.rd/bin:$HOME/.tmuxifier/bin:$PATH"
+export CONTEXT7_API_KEY="$(security find-generic-password -a "$USER" -s CONTEXT7_API_KEY -w 2>/dev/null)"
+
 eval "$(tmuxifier init -)"
 
 alias t="tmux"

@@ -31,4 +31,6 @@ A `setup.sh` script is provided to install common packages and plugins.
    ```sh
    security add-generic-password -a $USER -s ANTHROPIC_API_KEY -w YOUR_API_KEY
    security add-generic-password -a $USER -s OPENAI_API_KEY -w YOUR_API_KEY
+   security add-generic-password -a $USER -s CONTEXT7_API_KEY -w YOUR_API_KEY
+
    ```
