@@ -1,13 +1,13 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    css = { "prettier" },
+    css = { "biome" },
     scss = { "prettier" },
     html = { "prettier" },
-    javascript = { "prettier", "eslint" },
-    javascriptreact = { "prettier", "eslint" },
-    typescript = { "prettier", "eslint" },
-    typescriptreact = { "prettier", "eslint" },
+    javascript = { "biome" },
+    javascriptreact = { "biome" },
+    typescript = { "biome" },
+    typescriptreact = { "biome" },
   },
   format_on_save = {
     timeout_ms = 500,
