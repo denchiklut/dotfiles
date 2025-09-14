@@ -27,8 +27,7 @@ for plugin in "${!plugins[@]}"; do
 done
 
 # Ensure Node (LTS) is installed & active
-nvm install --lts --default
-nvm use --lts
+nvm install --lts 
 
 # Install script for Catppuccin Tmux 
 dir=$HOME/.config/tmux/plugins/catppuccin/tmux

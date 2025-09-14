@@ -288,7 +288,7 @@ return {
       },
       strategies = {
         chat = {
-          adapter = "anthropic",
+          adapter = "openai",
         },
         inline = {
           adapter = "openai",
@@ -310,6 +310,15 @@ return {
             return require("codecompanion.adapters").extend("openai", {
               env = {
                 api_key = "cmd:security find-generic-password -a $USER -s OPENAI_API_KEY -w 2>/dev/null",
+              },
+            })
+          end,
+        },
+        acp = {
+          claude_code = function()
+            return require("codecompanion.adapters").extend("claude_code", {
+              env = {
+                ANTHROPIC_API_KEY = "cmd:security find-generic-password -a $USER -s CLAUDE_API_KEY -w 2>/dev/null",
               },
             })
           end,
