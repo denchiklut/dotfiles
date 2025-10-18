@@ -43,7 +43,6 @@ return {
         menu = {
           draw = {
             align_to = "kind_icon",
-            padding = { 0, 1 },
           },
         },
       },
