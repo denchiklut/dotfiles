@@ -14,13 +14,12 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  pattern = "*",
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "codecompanion" },
+  desc = "Disable line numbers in CodeCompanion buffers",
   callback = function()
-    if vim.bo.filetype == "codecompanion" then
-      vim.wo.number = false
-      vim.wo.relativenumber = false
-    end
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
   end,
 })
 
