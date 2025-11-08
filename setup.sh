@@ -14,7 +14,7 @@ brew install starship fzf git-graph eza bat zoxide tmux ripgrep fd neovim stow p
 
 # Install oh-my-zsh plugins
 custom="$HOME/.oh-my-zsh/custom/plugins"
-declare -A plugins=(
+typeset -A plugins=(
   ["$custom/zsh-autosuggestions"]="https://github.com/zsh-users/zsh-autosuggestions.git"
   ["$custom/zsh-syntax-highlighting"]="https://github.com/zsh-users/zsh-syntax-highlighting.git"
   ["$custom/node-bin"]="https://github.com/remcohaszing/zsh-node-bin.git"
@@ -40,7 +40,6 @@ tpm=$HOME/.tmux/plugins/tpm
 # Install tmuxifier
 tmx=$HOME/.tmuxifier
 [ -d "$tmx/.git" ] || git clone https://github.com/jimeh/tmuxifier.git "$tmx"
-
 
 # Back up existing configuration
 declare -a configs=(
