@@ -279,6 +279,7 @@ return {
   {
     "olimorris/codecompanion.nvim",
     event = "VeryLazy",
+    version = "v17.33.0",
     opts = {
       display = {
         chat = {
