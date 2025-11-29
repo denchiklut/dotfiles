@@ -35,6 +35,10 @@ map("n", "<C-k>", ":TmuxNavigateUp<cr>", { silent = true })
 map("n", "<C-l>", ":TmuxNavigateRight<cr>", { silent = true })
 map("n", "<C-\\>", ":TmuxNavigatePrevious<cr>", { silent = true })
 
+map("n", "<leader>gd", ":DiffviewFileHistory %<cr>", { silent = true })
+map("n", "<leader>gD", ":DiffviewFileHistory<cr>", { silent = true })
+map("n", "<leader>gk", ":DiffviewOpen<cr>", { silent = true })
+
 map("n", "<leader>u", ":TestNearest<cr>", { silent = true })
 map("n", "<leader>T", ":TestFile<cr>", { silent = true })
 map("n", "<leader>s", ":TestSuite<cr>", { silent = true })
