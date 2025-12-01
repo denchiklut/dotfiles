@@ -1,0 +1,21 @@
+[user]
+  name = denchiklut
+  email = ollylut@gmail.com
+[init]
+  defaultBranch = main
+[commit]
+  gpgsign = false
+[push]
+  autoSetupRemote = true
+[core]
+  editor = nvim
+  autocrlf = input
+[alias]
+  lol = log --oneline --graph --all
+[diff]
+  algoritm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+[diff "sopsdiffer"]
+  textconv = sops -d --config /dev/null
