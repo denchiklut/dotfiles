@@ -288,10 +288,10 @@ return {
       },
       strategies = {
         chat = {
-          adapter = "openai",
+          adapter = "claude_code",
         },
         inline = {
-          adapter = "openai",
+          adapter = "anthropic",
         },
         cmd = {
           adapter = "openai",
@@ -302,7 +302,7 @@ return {
           anthropic = function()
             return require("codecompanion.adapters").extend("anthropic", {
               env = {
-                api_key = "cmd:security find-generic-password -a $USER -s ANTHROPIC_API_KEY -w 2>/dev/null",
+                api_key = "cmd:security find-generic-password -a $USER -s CLAUDE_API_KEY -w 2>/dev/null",
               },
             })
           end,
@@ -320,6 +320,11 @@ return {
               env = {
                 ANTHROPIC_API_KEY = "cmd:security find-generic-password -a $USER -s CLAUDE_API_KEY -w 2>/dev/null",
               },
+            })
+          end,
+          opencode = function()
+            return require("codecompanion.adapters").extend("opencode", {
+              commands = { default = { "opencode", "acp" } },
             })
           end,
         },

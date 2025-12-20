@@ -7,7 +7,7 @@ echo > "$HOME/.hushlogin"
 command -v brew >/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Brew installation
-brew install starship fzf git-graph eza bat zoxide tmux ripgrep fd neovim stow pngpaste
+brew install opencode starship fzf git-graph eza bat zoxide tmux ripgrep fd neovim stow pngpaste
 
 # Install oh-my-zsh
 [ -d "$HOME/.oh-my-zsh" ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -28,6 +28,11 @@ done
 
 # Ensure Node (LTS) is installed & active
 nvm install --lts 
+
+# Install Claude CLI and ACP
+curl -fsSL https://claude.ai/install.sh | bash
+npm install -g @zed-industries/claude-code-acp
+
 
 # Install script for Catppuccin Tmux 
 dir=$HOME/.config/tmux/plugins/catppuccin/tmux
