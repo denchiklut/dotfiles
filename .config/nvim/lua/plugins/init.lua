@@ -34,6 +34,16 @@ return {
   },
   { import = "nvchad.blink.lazyspec" },
   {
+    "folke/todo-comments.nvim",
+    event = "VeryLazy",
+    opts = {
+      signs = false,
+      keywords = {
+        TODO = { icon = " ", color = "warning", alt = { "todo" } },
+      },
+    },
+  },
+  {
     "Saghen/blink.cmp",
     opts = {
       completion = {
