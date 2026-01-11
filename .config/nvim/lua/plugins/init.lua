@@ -374,7 +374,6 @@ return {
     },
     config = function(_, opts)
       require("codecompanion").setup(opts)
-      require("configs.codecompanion.index").setup()
     end,
   },
   {
