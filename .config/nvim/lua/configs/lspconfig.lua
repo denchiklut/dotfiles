@@ -1,6 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "eslint", "html", "cssls", "bashls", "biome" }
+local servers = { "eslint", "html", "cssls", "bashls", "biome", "tsgo" }
 vim.lsp.enable(servers)
 
 -- read :h vim.lsp.config for changing options of lsp servers
