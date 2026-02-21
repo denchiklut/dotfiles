@@ -14,15 +14,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "codecompanion" },
-  desc = "Disable line numbers in CodeCompanion buffers",
-  callback = function()
-    vim.opt_local.number = false
-    vim.opt_local.relativenumber = false
-  end,
-})
-
 vim.api.nvim_create_autocmd("BufDelete", {
   callback = function()
     local bufs = vim.t.bufs

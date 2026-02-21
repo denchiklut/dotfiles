@@ -44,31 +44,10 @@ map("n", "<leader>T", ":TestFile<cr>", { silent = true })
 map("n", "<leader>s", ":TestSuite<cr>", { silent = true })
 map("n", "<leader>l", ":TestLast<cr>", { silent = true })
 
-map("v", "ga", ":CodeCompanionChat Add<cr>", { desc = "Code Companion Add to chat", noremap = true, silent = true })
-
-map(
-  { "n", "v" },
-  "<C-a>",
-  ":CodeCompanionActions<cr>",
-  { desc = "Code Companion Actions", noremap = true, silent = true }
-)
-
-map(
-  { "n", "v" },
-  "<leader>aa",
-  ":CodeCompanionChat Toggle<cr>",
-  { desc = "Code Companion Toggle Chat", noremap = true, silent = true }
-)
-
-map(
-  { "n", "v" },
-  "<leader>ai",
-  ":CodeCompanion<cr>",
-  { desc = "Code Companion Inline Prompt", noremap = true, silent = true }
-)
+map("n", "<C-a>", function()
+  vim.fn.system "tmux split-window -h -l 80 'opencode .'"
+end, { desc = "Open opencode in tmux pane", noremap = true, silent = true })
 
 map("n", "<leader>ih", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "Toggle inlay hints" })
-
-vim.cmd [[cab cc CodeCompanion]]

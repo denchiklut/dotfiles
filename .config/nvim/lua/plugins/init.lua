@@ -264,104 +264,7 @@ return {
       },
     },
   },
-  {
-    "olimorris/codecompanion.nvim",
-    event = "VeryLazy",
-    version = "v17.33.0",
-    opts = {
-      display = {
-        chat = {
-          start_in_insert_mode = true,
-        },
-      },
-      strategies = {
-        chat = {
-          adapter = "claude_code",
-        },
-        inline = {
-          adapter = "anthropic",
-        },
-        cmd = {
-          adapter = "openai",
-        },
-      },
-      adapters = {
-        http = {
-          anthropic = function()
-            return require("codecompanion.adapters").extend("anthropic", {
-              env = {
-                api_key = "cmd:security find-generic-password -a $USER -s CLAUDE_API_KEY -w 2>/dev/null",
-              },
-            })
-          end,
-          openai = function()
-            return require("codecompanion.adapters").extend("openai", {
-              env = {
-                api_key = "cmd:security find-generic-password -a $USER -s OPENAI_API_KEY -w 2>/dev/null",
-              },
-            })
-          end,
-        },
-        acp = {
-          claude_code = function()
-            return require("codecompanion.adapters").extend("claude_code", {
-              env = {
-                ANTHROPIC_API_KEY = "cmd:security find-generic-password -a $USER -s CLAUDE_API_KEY -w 2>/dev/null",
-              },
-            })
-          end,
-          opencode = function()
-            return require("codecompanion.adapters").extend("opencode", {
-              commands = { default = { "opencode", "acp" } },
-            })
-          end,
-        },
-      },
-      extensions = {
-        history = {
-          enabled = true,
-          opts = {
-            keymap = "gh",
-            auto_generate_title = true,
-            continue_last_chat = false,
-            delete_on_clearing_chat = false,
-            picker = "telescope",
-            enable_logging = false,
-            dir_to_save = vim.fn.stdpath "data" .. "/codecompanion-history",
-            auto_save = true,
-            save_chat_keymap = "sc",
-          },
-        },
-        mcphub = {
-          callback = "mcphub.extensions.codecompanion",
-          opts = {
-            make_vars = true,
-            make_tools = true,
-            make_slash_commands = true,
-            show_result_in_chat = true,
-            show_server_tools_in_chat = true,
-            add_mcp_prefix_to_tool_names = false,
-          },
-        },
-      },
-    },
-    dependencies = {
-      "github/copilot.vim",
-      "ravitemer/codecompanion-history.nvim",
-      "ravitemer/mcphub.nvim",
-    },
-    config = function(_, opts)
-      require("codecompanion").setup(opts)
-    end,
-  },
-  {
-    "ravitemer/mcphub.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    build = "npm install -g mcp-hub@latest",
-    config = function()
-      require("mcphub").setup()
-    end,
-  },
+
   {
     "HakonHarnes/img-clip.nvim",
     event = "VeryLazy",
@@ -371,11 +274,7 @@ return {
         prompt_for_file_name = false,
         use_absolute_path = true,
       },
-      filetypes = {
-        codecompanion = {
-          template = "[Image]($FILE_PATH)",
-        },
-      },
+
     },
     keys = {
       { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
@@ -386,9 +285,9 @@ return {
     event = "VeryLazy",
     opts = {
       heading = { border = true },
-      file_types = { "markdown", "codecompanion" },
+      file_types = { "markdown" },
     },
-    ft = { "markdown", "codecompanion" },
+    ft = { "markdown" },
     config = function(_, opts)
       require("render-markdown").setup(opts)
       require("configs.highlight").setup()

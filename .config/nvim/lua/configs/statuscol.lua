@@ -1,7 +1,7 @@
 local builtin = require "statuscol.builtin"
 
 require("statuscol").setup {
-  ft_ignore = { "NvimTree", "codecompanion", "oil" },
+  ft_ignore = { "NvimTree", "oil" },
   segments = {
     {
       text = { builtin.foldfunc, " " },
