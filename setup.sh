@@ -7,7 +7,7 @@ echo > "$HOME/.hushlogin"
 command -v brew >/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Brew installation
-brew install opencode starship fzf git-graph eza bat zoxide tmux ripgrep fd neovim stow pngpaste
+brew install opencode starship fzf git-graph eza bat zoxide tmux ripgrep fd neovim stow pngpaste tree-sitter-cli
 
 # Install oh-my-zsh
 [ -d "$HOME/.oh-my-zsh" ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

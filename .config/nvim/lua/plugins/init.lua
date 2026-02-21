@@ -10,6 +10,29 @@ return {
       require "configs.lspconfig"
     end,
   },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    ft = {
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+    },
+    opts = {
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+      settings = {
+        tsserver_file_preferences = {
+          includeInlayParameterNameHints = "literals",
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayVariableTypeHints = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeCompletionsForModuleExports = true,
+        },
+      },
+    },
+  },
   { import = "nvchad.blink.lazyspec" },
   {
     "folke/todo-comments.nvim",
@@ -48,14 +71,23 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      auto_install = true,
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<M-space>",
-          node_incremental = "<M-space>",
-          node_decremental = "<bs>",
-        },
+      ensure_installed = {
+        "typescript",
+        "javascript",
+        "tsx",
+        "html",
+        "css",
+        "json",
+        "jsonc",
+        "yaml",
+        "toml",
+        "markdown",
+        "markdown_inline",
+        "bash",
+        "regex",
+        "dockerfile",
+        "gitignore",
+        "python",
       },
     },
   },
@@ -274,7 +306,6 @@ return {
         prompt_for_file_name = false,
         use_absolute_path = true,
       },
-
     },
     keys = {
       { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
