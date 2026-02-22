@@ -239,6 +239,7 @@ return {
           style = "above_cursor",
         },
       },
+      image = { enabled = true },
       bigfile = { enabled = true },
     },
   },
@@ -341,6 +342,10 @@ return {
       heading = { position = "inline" },
       sign = { enabled = false },
       file_types = { "markdown" },
+      image = {
+        enabled = true,
+        provider = "snacks",
+      },
     },
     ft = { "markdown" },
     config = function(_, opts)

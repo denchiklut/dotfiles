@@ -14,6 +14,14 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+  end,
+})
+
 vim.api.nvim_create_autocmd("BufDelete", {
   callback = function()
     local bufs = vim.t.bufs
