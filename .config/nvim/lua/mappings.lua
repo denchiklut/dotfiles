@@ -6,8 +6,10 @@ local del = vim.keymap.del
 
 local buf = require "configs.buffer"
 local volt = require "configs.volt"
+local oc = require "configs.oc"
 
 volt.setup()
+oc.setup()
 
 del("n", "<leader>h")
 map("i", "jj", "<esc>")
@@ -29,11 +31,11 @@ map("n", "<leader>tp", ":tabprevious<cr>", { silent = true, desc = "Previous tab
 map("n", "<leader>tt", ":tabnew<cr>", { silent = true, desc = "New tab" })
 map("n", "<leader>tx", ":tabclose<cr>", { silent = true, desc = "Close tab" })
 
-map("n", "<C-h>", ":TmuxNavigateLeft<cr>", { silent = true })
-map("n", "<C-j>", ":TmuxNavigateDown<cr>", { silent = true })
-map("n", "<C-k>", ":TmuxNavigateUp<cr>", { silent = true })
-map("n", "<C-l>", ":TmuxNavigateRight<cr>", { silent = true })
-map("n", "<C-\\>", ":TmuxNavigatePrevious<cr>", { silent = true })
+map({ "n", "t" }, "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { silent = true })
+map({ "n", "t" }, "<C-j>", "<cmd>TmuxNavigateDown<cr>", { silent = true })
+map({ "n", "t" }, "<C-k>", "<cmd>TmuxNavigateUp<cr>", { silent = true })
+map({ "n", "t" }, "<C-l>", "<cmd>TmuxNavigateRight<cr>", { silent = true })
+map({ "n", "t" }, "<C-\\>", "<cmd>TmuxNavigatePrevious<cr>", { silent = true })
 
 map("n", "<leader>gd", ":DiffviewFileHistory %<cr>", { silent = true })
 map("n", "<leader>gD", ":DiffviewFileHistory<cr>", { silent = true })
@@ -43,10 +45,6 @@ map("n", "<leader>u", ":TestNearest<cr>", { silent = true })
 map("n", "<leader>T", ":TestFile<cr>", { silent = true })
 map("n", "<leader>s", ":TestSuite<cr>", { silent = true })
 map("n", "<leader>l", ":TestLast<cr>", { silent = true })
-
-map("n", "<C-a>", function()
-  vim.fn.system "tmux split-window -h -l 80 'opencode .'"
-end, { desc = "Open opencode in tmux pane", noremap = true, silent = true })
 
 map("n", "<leader>ih", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())

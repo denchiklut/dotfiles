@@ -226,8 +226,15 @@ return {
           col = 0,
         },
       },
+      picker = {
+        actions = {
+          opencode_send = function(...)
+            return require("opencode").snacks_picker_send(...)
+          end,
+        },
+      },
+      terminal = {},
       input = {
-        enabled = true,
         win = {
           style = "above_cursor",
         },
@@ -269,6 +276,22 @@ return {
   {
     "tpope/vim-surround",
     event = "VeryLazy",
+  },
+  {
+    "nickjvandyke/opencode.nvim",
+    event = "VeryLazy",
+    version = "*",
+    init = function()
+      vim.g.opencode_opts = {
+        provider = {
+          snacks = {
+            win = {
+              enter = true,
+            },
+          },
+        },
+      }
+    end,
   },
   {
     "echasnovski/mini.ai",
