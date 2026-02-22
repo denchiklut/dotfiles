@@ -8,5 +8,15 @@
       "type": "local",
       "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
     }
+  },
+  "default_agent": "plan",
+  "agent": {
+    "plan": {
+      "model": "anthropic/claude-opus-4-6",
+      "variant": "high"
+    },
+    "build": {
+      "model": "anthropic/claude-sonnet-4-6"
+    }
   }
 }
