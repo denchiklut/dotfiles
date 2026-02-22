@@ -1,5 +1,5 @@
 # Dotfiles
-<img width="1483" alt="Screenshot 2025-06-12 at 1 57 31 PM" src="https://github.com/user-attachments/assets/d848419f-9587-4760-94c5-6d2a84d5ab70" />
+![Screenshot 2025-06-12 at 1 57 31 PM](https://github.com/user-attachments/assets/d848419f-9587-4760-94c5-6d2a84d5ab70)
 
 This repository contains configuration files for customizing my command line environment.
 It includes settings for:
