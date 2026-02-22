@@ -338,7 +338,8 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     event = "VeryLazy",
     opts = {
-      heading = { border = true },
+      heading = { position = "inline" },
+      sign = { enabled = false },
       file_types = { "markdown" },
     },
     ft = { "markdown" },
