@@ -29,11 +29,6 @@ done
 # Ensure Node (LTS) is installed & active
 nvm install --lts 
 
-# Install Claude CLI and ACP
-curl -fsSL https://claude.ai/install.sh | bash
-npm install -g @zed-industries/claude-code-acp
-
-
 # Install script for Catppuccin Tmux 
 dir=$HOME/.config/tmux/plugins/catppuccin/tmux
 [ -d "$dir/.git" ] || git clone -b v2.1.3 https://github.com/catppuccin/tmux.git "$dir"
