@@ -22,7 +22,7 @@ This repository contains configuration files and bootstrap scripts for my macOS 
 
 2. Run the bootstrap script (installs Homebrew, CLI tools, themes, and applies Stow symlinks):
    ```sh
-   bash ~/dotfiles/setup.sh
+   zsh ~/dotfiles/setup.sh
    ```
 
 The script will:
