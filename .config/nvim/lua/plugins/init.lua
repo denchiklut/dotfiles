@@ -77,6 +77,7 @@ return {
         "tsx",
         "html",
         "css",
+        "scss",
         "json",
         "jsonc",
         "yaml",
@@ -339,7 +340,7 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     event = "VeryLazy",
     opts = {
-      heading = { position = "inline" },
+      heading = { position = "inline", icons = { "" } },
       sign = { enabled = false },
       file_types = { "markdown" },
       image = {
