@@ -28,6 +28,7 @@ done
 
 # Ensure Node (LTS) is installed & active
 nvm install --lts 
+npm install -g opencode-claude-auth
 
 # Install script for Catppuccin Tmux 
 dir=$HOME/.config/tmux/plugins/catppuccin/tmux
