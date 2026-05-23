@@ -10,14 +10,15 @@
     }
   },
   "default_agent": "plan",
+  "lsp": true,
   "agent": {
     "plan": {
-      "model": "anthropic/claude-opus-4-6",
+      "model": "anthropic/claude-opus-4-7",
       "variant": "high"
     },
     "build": {
-      "model": "anthropic/claude-sonnet-4-6"
+      "model": "openai/gpt-5.3-codex"
     }
   },
-  "plugin": ["opencode-claude-auth"]
+  "plugin": ["opencode-claude-auth@latest"]
 }
