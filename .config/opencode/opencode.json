@@ -17,7 +17,7 @@
       "variant": "high"
     },
     "build": {
-      "model": "openai/gpt-5.3-codex"
+      "model": "openai/gpt-5.5"
     }
   },
   "plugin": ["opencode-claude-auth@latest"]

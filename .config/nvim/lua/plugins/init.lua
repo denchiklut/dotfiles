@@ -70,8 +70,15 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "master",
+    build = ":TSUpdate",
     opts = {
       ensure_installed = {
+        "lua",
+        "luadoc",
+        "printf",
+        "vim",
+        "vimdoc",
         "typescript",
         "javascript",
         "tsx",
@@ -90,6 +97,8 @@ return {
         "gitignore",
         "python",
       },
+      highlight = { enable = true },
+      indent = { enable = true },
     },
   },
   { "nvzone/volt", lazy = true },
