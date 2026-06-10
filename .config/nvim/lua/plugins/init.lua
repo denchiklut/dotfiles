@@ -70,8 +70,11 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
-    build = ":TSUpdate",
+    branch = "main",
+    lazy = false,
+    build = function()
+      require("nvim-treesitter").update(nil, { summary = true })
+    end,
     opts = {
       ensure_installed = {
         "lua",
@@ -97,8 +100,6 @@ return {
         "gitignore",
         "python",
       },
-      highlight = { enable = true },
-      indent = { enable = true },
     },
   },
   { "nvzone/volt", lazy = true },
